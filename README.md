@@ -38,4 +38,4 @@ El dashboard estará disponible en `http://localhost:3000`.
 
 ## 📈 Escalabilidad Futura
 * Integración de modelos de Machine Learning (Random Forest) para predecir la probabilidad de *default*.
-* Conexión con Webhooks para automatizar la retención o liberación de fondos
+* Conexión con Webhooks para automatizar la retención o liberación de fondos.
