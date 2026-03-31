@@ -1,41 +1,70 @@
-# 🚀 NeoScore AI: Motor de Credit Scoring Conductual
+<h1 align="center"> 🛡️ NeoScore AI: Motor de Credit Scoring Conductual </h1>
 
-NeoScore AI es un sistema de evaluación de riesgo crediticio diseñado para el ecosistema Fintech. A diferencia de los burós de crédito tradicionales, NeoScore analiza el **comportamiento transaccional real** de un comercio (volumen de ventas, estabilidad de ingresos, tasas de contracargos y reembolsos) para generar un score de confianza dinámico.
+> **Solución de Evaluación de Riesgo Crediticio en Tiempo Real para el Ecosistema Fintech**
+> 
+> **Rol:** Backend & AI Engineer
 
-## 🎯 El Problema que Resuelve
-Muchas pasarelas de pago y empresas de préstamos descartan comercios rentables porque no tienen un historial crediticio bancario formal. NeoScore transforma la data cruda de transacciones en un indicador de riesgo procesable, permitiendo aprobaciones de crédito más justas y seguras basadas en el flujo de caja real.
+---
 
-## 🏗️ Arquitectura del Proyecto
+## 📄 Visión del Proyecto
 
-El proyecto está dividido en un motor analítico (Backend) y un panel de visualización (Frontend):
+**NeoScore AI** es un sistema avanzado de evaluación de riesgo diseñado para democratizar el acceso al crédito. A diferencia de los burós tradicionales que dependen de historiales estáticos, NeoScore analiza el **comportamiento transaccional en tiempo real**. 
 
-* **Motor de Datos (Python/Pandas):** Generación de datos sintéticos y pipeline de *Feature Engineering* para calcular métricas clave (Varianza de ingresos, tasas de fraude).
-* **Core API (FastAPI):** Microservicio ultrarrápido que procesa las métricas a través de un algoritmo de ponderación y devuelve un Score de 0 a 1000.
-* **Dashboard (Next.js + Tailwind CSS):** Interfaz de usuario minimalista para que los analistas de riesgo consulten el estado de un comercio en tiempo real.
+Este motor permite que las Fintechs evalúen la salud financiera de un comercio basándose en su flujo de caja real, estabilidad de ingresos y perfiles de riesgo operativo, permitiendo decisiones de crédito más justas y seguras.
 
-## ⚙️ Cómo ejecutarlo localmente
+### 🎯 Impacto en el Negocio:
+* **Inclusión Financiera:** Califica a comercios sin historial crediticio bancario formal.
+* **Reducción de Bad Debt:** Identifica patrones de riesgo (contracargos/reembolsos) antes de la aprobación.
+* **Decisiones en Tiempo Real:** Automatiza la clasificación de riesgo en milisegundos a través de una API asíncrona.
 
-### 1. Backend (FastAPI)
-\`\`\`bash
-# Instalar dependencias
-pip install fastapi "uvicorn[standard]" pandas numpy
+---
 
-# Generar datos y características
-python backend/aplicacion/datos/generador.py
-python backend/aplicacion/datos/caracteristicas.py
+## 🛠️ Arquitectura y Stack Tecnológico
 
-# Levantar el servidor
-uvicorn backend.aplicacion.principal:app --reload
-\`\`\`
+El sistema está diseñado bajo una arquitectura de microservicios, separando la inteligencia de datos de la capa de visualización.
 
-### 2. Frontend (Next.js)
-\`\`\`bash
-cd frontend
-npm install
-npm run dev
-\`\`\`
-El dashboard estará disponible en `http://localhost:3000`.
+| Capa | Tecnologías | Propósito |
+|-----------|--------------|-----------|
+| **Backend** | Python & FastAPI | Motor de cálculo de alta velocidad y alta disponibilidad. |
+| **Data Engine** | Pandas & NumPy | Pipeline de *Feature Engineering* y procesamiento de métricas. |
+| **Frontend** | Next.js & Tailwind CSS | Dashboard de monitoreo y visualización de KPIs para analistas. |
+| **Infraestructura** | PostgreSQL / CSV | Persistencia de métricas transaccionales y perfiles de comercio. |
 
-## 📈 Escalabilidad Futura
-* Integración de modelos de Machine Learning (Random Forest) para predecir la probabilidad de *default*.
-* Conexión con Webhooks para automatizar la retención o liberación de fondos
+---
+
+## ⚙️ Inteligencia de Datos: El Algoritmo NeoScore
+
+El corazón del proyecto es un motor de evaluación que transforma la data cruda en un indicador de confianza de **0 a 1000 puntos**. 
+
+### 1. Ingeniería de Características (Feature Engineering)
+El sistema extrae métricas críticas de cada comercio:
+* **Volumen Total:** Capacidad de generación de ingresos.
+* **Varianza de Ingresos:** Mide la estabilidad del flujo de caja. Una varianza alta indica ingresos impredecibles.
+* **Tasas de Riesgo:** Análisis de la relación entre ventas exitosas vs. contracargos y reembolsos.
+
+### 2. Fórmula de Ponderación
+El Score se calcula dinámicamente aplicando bonos por rendimiento y penalizaciones por riesgo:
+
+$$\text{NeoScore} = 500 + \text{Bono}_{volumen} - \text{Penalización}_{inestabilidad} - \text{Penalización}_{riesgo}$$
+
+---
+
+## 📈 Categorización de Riesgo
+
+Basado en el score obtenido, el motor clasifica automáticamente la solicitud de crédito:
+
+* **🟢 Riesgo Bajo (Score ≥ 750):** Aprobación Automática. Comercios con flujo estable y bajo fraude.
+* **🟡 Riesgo Moderado (Score 400 - 749):** Revisión Manual. Requiere intervención de un analista de riesgo.
+* **🔴 Riesgo Alto (Score < 400):** Rechazo Automático. Patrones detectados de inestabilidad o alto contracargo.
+
+---
+
+## 🚀 Hoja de Ruta (Roadmap de Producto)
+
+* **Predictive AI:** Integración de modelos de *Random Forest* para predecir la probabilidad de default a 6 meses.
+* **Fraud Detection:** Análisis de redes neuronales para detectar anomalías en los montos transaccionales.
+* **Multi-tenant:** Soporte para múltiples pasarelas de pago simultáneas.
+
+---
+
+<h3 align="center">🚀 Desarrollado por Rodrigo - Data Science & AI Engineer 🚀</h3>
